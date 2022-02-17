@@ -41,7 +41,7 @@
 @yield('styles')
 
 <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-<livewire:styles />
+@livewireStyles
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 
@@ -399,7 +399,7 @@
 
         @yield('scripts')
 
-        <livewire:scripts />
+        @livewireScripts
 
 
 
@@ -409,39 +409,39 @@
 
         @if($empresa <= 0)
         <script type="text/javascript">
-          toastr.warning("POR FAVOR CONFIGURE LOS DATOS DE LA EMPRESA")
-      </script>
-      @endif
-      @if($tipos <= 0)
-      <script type="text/javascript">
-          toastr.warning("ES NECESARIO REGISTRAR LOS TIPOS DE VEHÍCULOS")
-      </script>
-      @endif
-      @if($tarifas <= 0)
-      <script type="text/javascript">
-          toastr.warning("DEBES INGRESAR LAS TARIFAS DEL SISTEMA")
-      </script>
-      @endif
-      @if($cajones <= 0)
-      <script type="text/javascript">
-          toastr.warning("FALTA AGREGAR LOS CAJONES DEL ESTACIONAMIENTO")
-      </script>
-      @endif
-      @if($tiposSinTarifa > 0)
-      <script type="text/javascript">
-          toastr.warning("NO HAY TARIFA DE COBRO PARA ALGUNOS TIPOS DE VEHÍCULOS")
-      </script>
-      @endif
-      @if($rentasVencidas > 0)
-      <script type="text/javascript">
-          toastr.error("EXISTEN {{$rentasVencidas}} RENTAS VENCIDAS")
-      </script>
-      @endif
-      @if($rentasPorVencer > 0)
-      <script type="text/javascript">
-          toastr.warning("HAY {{$rentasPorVencer}} RENTAS PRÓXIMAS A VENCER")
-      </script>
-      @endif
+            toastr.warning("POR FAVOR CONFIGURE LOS DATOS DE LA EMPRESA")
+        </script>
+        @endif
+        {{-- @if($tipos <= 0)
+        <script type="text/javascript">
+            toastr.warning("ES NECESARIO REGISTRAR LOS TIPOS DE VEHÍCULOS")
+        </script>
+        @endif
+        @if($tarifas <= 0)
+        <script type="text/javascript">
+            toastr.warning("DEBES INGRESAR LAS TARIFAS DEL SISTEMA")
+        </script>
+        @endif
+        @if($cajones <= 0)
+        <script type="text/javascript">
+            toastr.warning("FALTA AGREGAR LOS CAJONES DEL ESTACIONAMIENTO")
+        </script>
+        @endif
+        @if($tiposSinTarifa > 0)
+        <script type="text/javascript">
+            toastr.warning("NO HAY TARIFA DE COBRO PARA ALGUNOS TIPOS DE VEHÍCULOS")
+        </script>
+        @endif
+        @if($rentasVencidas > 0)
+        <script type="text/javascript">
+            toastr.error("EXISTEN {{$rentasVencidas}} RENTAS VENCIDAS")
+        </script>
+        @endif
+        @if($rentasPorVencer > 0)
+        <script type="text/javascript">
+            toastr.warning("HAY {{$rentasPorVencer}} RENTAS PRÓXIMAS A VENCER")
+        </script>
+        @endif --}}
 
 
       <script>
