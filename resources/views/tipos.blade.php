@@ -1,5 +1,5 @@
 @extends('layouts.template')
 
 @section('content')
-    @livewire('tipos')
+    @livewire('tipo-controller')
 @endsection

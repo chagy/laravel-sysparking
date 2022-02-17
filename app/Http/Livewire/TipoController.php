@@ -6,7 +6,7 @@ use App\Models\Tipo;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Tipos extends Component
+class TipoController extends Component
 {
     use WithPagination;
 

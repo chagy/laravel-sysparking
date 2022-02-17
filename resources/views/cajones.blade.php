@@ -1,5 +1,5 @@
 @extends('layouts.template')
 
 @section('content')
-    @livewire('cajon')
+    @livewire('cajon-controller')
 @endsection
