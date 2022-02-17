@@ -1,5 +1,5 @@
 <ul class="table-controls">
-	@can($edit)
+
 	<li>
 		<a 
             href="javascript:void(0);" 
@@ -22,11 +22,7 @@
             </svg>
         </a>
 	</li>
-	@endcan
 	
-
-
-	@can($destroy)
 	<li>
 		<a 
             href="javascript:void(0);"          		
@@ -52,7 +48,7 @@
             </svg>
         </a>
 	</li>
-	@endcan
+
 
 
 </ul>

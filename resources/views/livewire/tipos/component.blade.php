@@ -28,8 +28,10 @@
                    <tr>
 
                     <td class="text-center"><p class="mb-0">{{$r->id}}</p></td>
-                    <td class="text-center">{{$r->descripcion}}</td>
-                    <td class="text-center"><img class="avatar avatar-lg" src="images/{{$r->imagen}}" alt="" height="40"></td>
+                    <td class="text-center">{{$r->description}}</td>
+                    <td class="text-center">
+                        <img class="avatar avatar-lg" src="images/{{$r->imagen}}" alt="" height="40">
+                    </td>
                     <td class="text-center">
                         @include('common.actions', ['edit' => 'tipos_edit', 'destroy'=> 'tipos_destroy'])
                     </td>
@@ -43,7 +45,7 @@
 </div>     
 
 @elseif($action == 2)
-@include('livewire.tipos.form')		
+    @include('livewire.tipos.form')		
 @endif  
 </div>
 

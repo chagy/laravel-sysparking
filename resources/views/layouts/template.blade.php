@@ -412,12 +412,12 @@
             toastr.warning("POR FAVOR CONFIGURE LOS DATOS DE LA EMPRESA")
         </script>
         @endif
-        {{-- @if($tipos <= 0)
+        @if($tipos <= 0)
         <script type="text/javascript">
             toastr.warning("ES NECESARIO REGISTRAR LOS TIPOS DE VEHÍCULOS")
         </script>
         @endif
-        @if($tarifas <= 0)
+        {{-- @if($tarifas <= 0)
         <script type="text/javascript">
             toastr.warning("DEBES INGRESAR LAS TARIFAS DEL SISTEMA")
         </script>
