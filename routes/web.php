@@ -26,3 +26,4 @@ Route::get("empresa",function(){
 });
 
 Route::view("cajones","cajones");
+Route::view("tipos","tipos");
