@@ -18,7 +18,7 @@ class CajaController extends Component
     public function render()
     {
         if(strlen($this->search) > 0){
-            return view('livewire.cajas.component',[
+            return view('livewire.movimientos.component',[
                 'info' => Caja::where('tipo','like',"%{$this->search}%")->orWhere('concepto','like',"%{$this->search}%")->paginate($this->pagination)
             ]);
         }else{
@@ -27,7 +27,7 @@ class CajaController extends Component
                         ->orderBy('id','desc')
                         ->paginate($this->pagination);
 
-            return view('livewire.cajas.component',[
+            return view('livewire.movimientos.component',[
                 'info' => $cajas
             ]);
         }
@@ -90,7 +90,7 @@ class CajaController extends Component
             if($this->comprobante){
                 $image = $this->comprobante;
                 $fileName = time().'.'.explode('/',explode(':',substr($image,0,strpos($image,';')))[1])[1];
-                $moved = \Image::make($image)->save('images/'.$fileName);
+                $moved = \Image::make($image)->save('images/movs/'.$fileName);
 
                 if($moved){
                     $caja->comprobante = $fileName;
@@ -108,7 +108,7 @@ class CajaController extends Component
             if($this->comprobante){
                 $image = $this->comprobante;
                 $fileName = time().'.'.explode('/',explode(':',substr($image,0,strpos($image,';')))[1])[1];
-                $moved = \Image::make($image)->save('images/'.$fileName);
+                $moved = \Image::make($image)->save('images/movs/'.$fileName);
 
                 if($moved){
                     $record->comprobante = $fileName;

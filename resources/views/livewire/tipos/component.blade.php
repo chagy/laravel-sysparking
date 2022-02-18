@@ -66,22 +66,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function Confirm(id)
 {       
-   swal({
-    title: 'CONFIRMAR',
-    text: '¿DESEAS ELIMINAR EL REGISTRO?',
-    type: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Aceptar',
-    cancelButtonText: 'Cancelar',
-    closeOnConfirm: false
-},
-function() {        
-    window.livewire.emit('deleteRow', id)    
-   // toastr.success('info', 'Registro eliminado con éxito')
-    swal.close()   
-})
+    swal({
+        title: 'CONFIRMAR',
+        text: '¿DESEAS ELIMINAR EL REGISTRO?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar',
+        closeOnConfirm: false
+    },
+    function() {        
+        window.livewire.emit('deleteRow', id)    
+    // toastr.success('info', 'Registro eliminado con éxito')
+        swal.close()   
+    })
 
 }
 

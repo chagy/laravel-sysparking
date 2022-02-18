@@ -25,5 +25,8 @@ Route::get("empresa",function(){
     return "empresa";
 });
 
-Route::view("cajones","cajones");
 Route::view("tipos","tipos");
+
+Route::view("cajones","cajones");
+
+Route::view("caja","caja");
