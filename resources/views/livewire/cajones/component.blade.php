@@ -44,7 +44,7 @@
 
         @elseif($action == 2)
 
-            @livewire('livewire.cajones.form')
+            @include('livewire.cajones.form')
 
         @endif
 

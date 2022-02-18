@@ -47,9 +47,11 @@
     </div>
     @elseif($action > 1)
 
-    @livewire('livewire.cajas.form')
+    @include('livewire.movimientos.form')
 
     @endif
+
+    
 </div>
 
 <script>
@@ -58,7 +60,7 @@
             let inputField = document.getElementById('image')
             let file = inputField.files[0]
             let reader = new FileReader()
-            reader.onloaded = () => {
+            reader.onloadend = () => {
                 window.livewire.emit("fileUpload",reader.result);
             }
             reader.readAsDataURL(file)

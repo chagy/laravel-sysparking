@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="form-group col-lg-4 col-md-4 col-sm-12">
                     <label for="">Tipo</label>
-                    <select name="" id="" wire:model="tipo">
+                    <select name="" id="" wire:model="tipo" class="form-control">
                         <option value="Elegir">Elegir</option>
                         <option value="Ingreso">Ingreso</option>
                         <option value="Gasto">Gasto</option>
@@ -29,8 +29,9 @@
                     <input 
                         type="file" 
                         class="form-control text-center" 
-                        wire:change="$emit('fileChoose',this)" 
-                        accept="image/x-png,image/gif,image/jpeg"/>
+                        wire:change="$emit('fileChoosen',this)" 
+                        accept="image/x-png,image/gif,image/jpeg" 
+                        id="image"/>
                 </div>
 
                 <div class="form-group col-lg-12 col-sm-12 mb-8">

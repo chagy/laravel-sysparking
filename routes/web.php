@@ -29,4 +29,4 @@ Route::view("tipos","tipos");
 
 Route::view("cajones","cajones");
 
-Route::view("caja","caja");
+Route::view("movimientos","movimientos");

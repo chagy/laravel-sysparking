@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Caja;
+use App\Models\Cajas;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
@@ -19,11 +19,11 @@ class CajaController extends Component
     {
         if(strlen($this->search) > 0){
             return view('livewire.movimientos.component',[
-                'info' => Caja::where('tipo','like',"%{$this->search}%")->orWhere('concepto','like',"%{$this->search}%")->paginate($this->pagination)
+                'info' => Cajas::where('tipo','like',"%{$this->search}%")->orWhere('concepto','like',"%{$this->search}%")->paginate($this->pagination)
             ]);
         }else{
-            $cajas = Caja::leftJoin('users as u','u.id','cajas.user_id')
-                        ->select('cajas.*','u.nombre')
+            $cajas = Cajas::leftJoin('users as u','u.id','cajas.user_id')
+                        ->select('cajas.*','u.name')
                         ->orderBy('id','desc')
                         ->paginate($this->pagination);
 
@@ -58,13 +58,14 @@ class CajaController extends Component
 
     public function edit($id)
     {
-        $record = Caja::find($id);
+        $record = Cajas::find($id);
+
         $this->selected_id = $id;
         $this->tipo = $record->tipo;
         $this->concepto = $record->concepto;
         $this->monto = $record->monto;
         $this->comprobante = $record->comprobante;
-        $this->action = $record->action;
+        $this->action = 2;
     }
 
     public function StoreOrUpdate()
@@ -80,7 +81,7 @@ class CajaController extends Component
         ]);
 
         if($this->selected_id <= 0){
-            $caja = Caja::create([
+            $caja = Cajas::create([
                 'monto' => $this->monto,
                 'tipo' => $this->tipo,
                 'concepto' => $this->concepto,
@@ -98,8 +99,8 @@ class CajaController extends Component
                 }
             }
         }else{
-            $record = Caja::find($this->selected_id);
-            $record = Caja::update([
+            $record = Cajas::find($this->selected_id);
+            $record->update([
                 'monto' => $this->monto,
                 'tipo' => $this->tipo,
                 'concepto' => $this->concepto,
@@ -131,7 +132,7 @@ class CajaController extends Component
         'fileUpload' => 'handleFileUpload'
     ];
 
-    public function handleFileUpload()
+    public function handleFileUpload($imageData)
     {
         $this->comprobante = $imageData;
     }
@@ -139,7 +140,7 @@ class CajaController extends Component
     public function destroy($id)
     {
         if($id){
-            $record = Caja::where('id',$id);
+            $record = Cajas::where('id',$id);
             $record->delete();
             $this->resetInput();
         }
