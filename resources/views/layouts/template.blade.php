@@ -444,22 +444,16 @@
         @endif --}}
 
 
-      <script>
+    <script>
         //escuchamos eventos 200ok
         window.livewire.on('msgok', msgText => {
-          toastr.success( msgText, "Info");     
-      })
+            toastr.success( msgText, "Info");     
+        })
         //escuchamos eventos de error
         window.livewire.on('msg-error', msgText => {
-          toastr.error( msgText.toUpperCase(), "Alerta!");     
-      })
-
-        
-
-
-
-
-  </script>
+            toastr.error( msgText.toUpperCase(), "Alerta!");     
+        })
+    </script>
 
 
 </body>
