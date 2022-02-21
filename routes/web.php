@@ -21,12 +21,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get("empresa",function(){
-    return "empresa";
-});
 
 Route::view("tipos","tipos");
-
 Route::view("cajones","cajones");
-
 Route::view("movimientos","movimientos");
+Route::view("tarifas","tarifas");
