@@ -26,3 +26,4 @@ Route::view("tipos","tipos");
 Route::view("cajones","cajones");
 Route::view("movimientos","movimientos");
 Route::view("tarifas","tarifas");
+Route::view("empresa","empresa");
