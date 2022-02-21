@@ -36,7 +36,7 @@
                                 type="text" 
                                 class="form-control" 
                                 placeholder="Nombre del tipo" 
-                                wire:model.lazy="description">
+                                wire:model.lazy="descripcion">
                         </div>
                         @error('descripcion') 
                             <span class="text-danger">{{ $message }}</span> 

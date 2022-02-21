@@ -10,7 +10,7 @@ class TipoController extends Component
 {
     use WithPagination;
 
-    public $description;
+    public $descripcion;
     public $selected_id,$search;
     public $action = 1;
     private $pagination = 5;
@@ -23,7 +23,7 @@ class TipoController extends Component
     public function render()
     {
         if(strlen($this->search) > 0){
-            $info = Tipo::where('description','like',"%{$this->search}%")->paginate($this->pagination);
+            $info = Tipo::where('descripcion','like',"%{$this->search}%")->paginate($this->pagination);
             return view('livewire.tipos.component',[
                 'info' => $info
             ]);
@@ -47,7 +47,7 @@ class TipoController extends Component
 
     public function resetInput()
     {
-        $this->description = '';
+        $this->descripcion = '';
         $this->selected_id = null;
         $this->action = 1;
         $this->search = '';
@@ -56,7 +56,7 @@ class TipoController extends Component
     public function edit($id)
     {
         $record = Tipo::findOrFail($id);
-        $this->description = $record->description;
+        $this->descripcion = $record->descripcion;
         $this->selected_id = $record->id;
         $this->action = 2;
     }
@@ -64,20 +64,20 @@ class TipoController extends Component
     public function StoreOrUpdate()
     {
         $this->validate([
-            'description' => 'required|min:4'
+            'descripcion' => 'required|min:4'
         ]);
 
         if($this->selected_id > 0){
-            $existe = Tipo::where('description',$this->description)->where('id','<>',$this->selected_id)->select('description')->get();
+            $existe = Tipo::where('descripcion',$this->descripcion)->where('id','<>',$this->selected_id)->select('descripcion')->get();
             if($existe->count() > 0){
-                session()->flash('msg-error','Ya existe otro registro con la misma description');
+                session()->flash('msg-error','Ya existe otro registro con la misma descripcion');
                 $this->resetInput();
                 return;
             }
         } else {
-            $existe = Tipo::where('description',$this->description)->select('description')->get();
+            $existe = Tipo::where('descripcion',$this->descripcion)->select('descripcion')->get();
             if($existe->count() > 0){
-                session()->flash('msg-error','Ya existe otro registro con la misma description');
+                session()->flash('msg-error','Ya existe otro registro con la misma descripcion');
                 $this->resetInput();
                 return;
             }
@@ -85,12 +85,12 @@ class TipoController extends Component
 
         if($this->selected_id <= 0){
             $record = Tipo::create([
-                'description' => $this->description
+                'descripcion' => $this->descripcion
             ]);
         }else{
             $record = Tipo::find($this->selected_id);
             $record->update([
-                'description' => $this->description
+                'descripcion' => $this->descripcion
             ]);
         }
 

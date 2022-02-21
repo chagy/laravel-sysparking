@@ -1,6 +1,6 @@
 <div class="row layout-top-spacing">
     <div class="col-sm-12 col-md-12 col-lg-12 layout-spacing">
-
+        @if($action == 1)
         <div class="widget-content-area br-4">
             <div class="widget-header">
                 <div class="row">
@@ -42,7 +42,7 @@
                 </div>
                 
                 <div class="col-md-2 col-lg-2 col-sm-12 mt-2 mb-2 text-right mr-2">
-                    <button type="button" onclick="openModal()" class="btn btn-dark">
+                    <button type="button" wire:click="doAction(2)" class="btn btn-dark">
                         <i class="la la-file la-lg"></i>
                     </button>
                 </div>
@@ -95,7 +95,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        @if($r->renta->count() <= 0)
+                                        
                                         <a 
                                             href="javascript:void(0);"          		
                                             onclick="Confirm('{{$r->id}}')" 
@@ -119,7 +119,7 @@
                                                 <line x1="14" y1="11" x2="14" y2="17"></line>
                                             </svg>
                                         </a>
-                                        @endif
+                                    
                                     </li>
                                 </ul>
                             </td>
@@ -131,10 +131,13 @@
             </div>
         </div>
 
+        @elseif($action == 2)
 
-        @include('livewire.tarifas.modal')
-        <input type="hidden" name="id" id="id" value="0">
+            @include('livewire.tarifas.form')
+            <input type="hidden" name="id" id="id" value="0">
 
+
+        @endif
 
     </div>
 </div>

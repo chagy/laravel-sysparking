@@ -12,7 +12,7 @@ class Tipo extends Model
     protected $table="tipos";
 
     protected $fillable = [
-        "description"
+        "descripcion"
     ];
 
     // protected $rules = ['description' => 'required|min:4'];

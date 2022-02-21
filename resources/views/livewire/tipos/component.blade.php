@@ -28,7 +28,7 @@
                    <tr>
 
                     <td class="text-center"><p class="mb-0">{{$r->id}}</p></td>
-                    <td class="text-center">{{$r->description}}</td>
+                    <td class="text-center">{{$r->descripcion}}</td>
                     <td class="text-center">
                         <img class="avatar avatar-lg" src="images/{{$r->imagen}}" alt="" height="40">
                     </td>

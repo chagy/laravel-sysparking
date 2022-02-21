@@ -8,7 +8,7 @@ use App\Models\Tarifa;
 use App\Models\Tipo;
 use DB;
 
-class Tarifas extends Component
+class TarifasController extends Component
 {
     use WithPagination;
 
@@ -30,6 +30,10 @@ class Tarifas extends Component
         {
             $tarifa = Tarifa::select('jerarquia')->orderBy('jerarquia','desc')->first();
             $this->jerarquia = $tarifa->jerarquia + 1;
+        }
+        else 
+        {
+            $this->jerarquia = 0;
         }
     }
 
@@ -170,6 +174,7 @@ class Tarifas extends Component
 
         $this->resetInput();
         $this->getJerarquia();
+        $this->action = 1;
     }
 
     protected $listeners = [
