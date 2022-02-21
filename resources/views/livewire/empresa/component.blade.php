@@ -14,7 +14,7 @@
                     type="text" 
                     class="form-control text-left">
             </div>
-            <div class="form-group col-sm-12">
+            <div class="form-group col-sm-12 col-md-4 col-lg-4">
                 <label>Telefono</label>
                 <input 
                     wire:model.lazy="telefono" 
@@ -22,7 +22,7 @@
                     type="text" 
                     class="form-control text-left">
             </div>
-            <div class="form-group col-sm-12">
+            <div class="form-group col-sm-12 col-md-4 col-lg-4">
                 <label>Email</label>
                 <input 
                     wire:model.lazy="email" 
@@ -30,7 +30,7 @@
                     type="text" 
                     class="form-control text-center">
             </div>
-            <div class="form-group col-sm-12">
+            <div class="form-group col-sm-12 col-md-4 col-lg-4">
                 <label>Logo</label>
                 <input 
                     type="file" 
