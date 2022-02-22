@@ -143,6 +143,24 @@
     }
 
     document.addEventListener('DOMContentLoaded',function(){
-        
+        $('body').on('click','.saveRenta',function(){
+            var ta = $('#tarifa').val()
+            var ca = $('#cajon').val()
+            $("#modalRenta").modal('hide');
+            window.livewire.emit('doCheckIn',ta,ca,'DISPONIBLE',$.trim($('#comment').val()))
+            $('#comment').val('')
+        })
+
+        window.livewire.on('print',ticket => {
+            var ruta = "{{ url('print/order') }}" + '/' + ticket;
+            var w = window.open(ruta,"_blank","width=100, height=100")
+            w.close()
+        })
+
+        window.livewire.on('print-pension',ticket => {
+            var ruta = "{{ url('print/pension') }}" + '/' + ticket;
+            var w = window.open(ruta,"_blank","width=100, height=100")
+            w.close()
+        })
     })
 </script>
