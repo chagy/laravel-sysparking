@@ -1,5 +1,5 @@
 @extends('layouts.template')
 
 @section('content')
-    @livewire('usuarios-controller')
+    @livewire('usuario-controller')
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -77,8 +78,8 @@ class UsuarioController extends Component
             'nombre' => 'required',
             'password' => 'required',
             'email' => 'required|email',
+            'tipo' => 'required',
             'tipo' => 'not_in:Elegir',
-            'tipo' => 'required'
         ]);
 
         if($this->selected_id <= 0){
@@ -124,6 +125,7 @@ class UsuarioController extends Component
     }
 
     protected $listeners = [
-        'deleteRow' => 'desctroy'
+        'deleteRow' => 'desctroy',
+        'handleAvatar' => 'handleAvatar'
     ];
 }
